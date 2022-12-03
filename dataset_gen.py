@@ -1,5 +1,6 @@
 import cv2
 import os
+import subprocess
 
 root = "videos"
 train_root = "train"
@@ -9,6 +10,7 @@ clip_length = 30
 
 train_rate = 3
 
+train_idx = 0
 for name in os.listdir(root):
 
     path = os.path.join(root, name)
@@ -23,7 +25,6 @@ for name in os.listdir(root):
     print(rate, frame_num, clip_num)
 
     valid_idx = list(range(0, clip_num, train_rate + 1))
-    train_idx = 0
     for idx in range(clip_num):
         frame_start = idx * clip_length
         frame_end = frame_start+clip_length
@@ -35,5 +36,6 @@ for name in os.listdir(root):
         else:
             clip_path = os.path.join(train_root, str(train_idx), clip_name)
             print("train", clip_name, clip_path)
-        cmd = [ffmpeg, '-i', path, '-vf', f'select=between(n\,{frame_start}\,{frame_end})', '-y', 'copy', clip_path]
-        print(cmd)
+        os.makedirs(os.path.dirname(clip_path), exist_ok=True)
+        cmd = [ffmpeg, '-i', path, '-vf', f'select=between(n\,{frame_start}\,{frame_end})', '-y', clip_path]
+        subprocess.run(cmd)
