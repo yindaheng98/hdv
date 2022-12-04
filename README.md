@@ -21,7 +21,7 @@ And some related tools.
 Download Inter4K.zip from [Google Drive](https://tinyurl.com/inter4KUHD)
 
 ```sh
-unzip Inter4K.zip -d videos/
+unzip Inter4K.zip -d datasets/orig/videos/
 ```
 
 ### 1080P UGC dataset
@@ -31,8 +31,8 @@ gsutil ls gs://ugc-dataset/vp9_compressed_videos/*1080P*orig.mp4
 gsutil ls gs://ugc-dataset/original_videos_h264/*1080P*.mp4
 
 mkdir videos
-gsutil cp gs://ugc-dataset/vp9_compressed_videos/*1080P*orig.mp4 videos/
-gsutil cp gs://ugc-dataset/original_videos_h264/*1080P*.mp4 videos/
+gsutil cp gs://ugc-dataset/vp9_compressed_videos/*1080P*orig.mp4 datasets/orig/videos/
+gsutil cp gs://ugc-dataset/original_videos_h264/*1080P*.mp4 datasets/orig/videos/
 ```
 
 ## Generate Dataset

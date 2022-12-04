@@ -2,10 +2,10 @@ import cv2
 import os
 import subprocess
 
-root = "videos"
-train_root = "train"
-valid_root = "valid"
-ffmpeg = "ffmpeg"
+root = "datasets/orig"
+train_root = "datasets/train"
+valid_root = "datasets/valid"
+ffmpeg = "datasets/ffmpeg.exe"
 
 train_rate = 3
 valid_clip_length = 30
