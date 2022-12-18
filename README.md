@@ -31,8 +31,8 @@ gsutil ls gs://ugc-dataset/vp9_compressed_videos/*1080P*orig.mp4
 gsutil ls gs://ugc-dataset/original_videos_h264/*1080P*.mp4
 
 mkdir videos
-gsutil cp gs://ugc-dataset/vp9_compressed_videos/*1080P*orig.mp4 datasets/orig/videos/
-gsutil cp gs://ugc-dataset/original_videos_h264/*1080P*.mp4 datasets/orig/videos/
+gsutil -m cp gs://ugc-dataset/vp9_compressed_videos/*1080P*orig.mp4 datasets/orig/videos/
+gsutil -m cp gs://ugc-dataset/original_videos_h264/*1080P*.mp4 datasets/orig/videos/
 ```
 
 ## Generate Dataset

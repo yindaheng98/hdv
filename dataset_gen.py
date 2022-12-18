@@ -1,19 +1,21 @@
 import cv2
 import os
+import sys
 import subprocess
 
-root = "datasets/orig"
-train_root = "datasets/train"
-valid_root = "datasets/valid"
+root = os.path.join(os.path.dirname(sys.argv[0]), "datasets")
+origi_root = os.path.join(root, "origi")
+train_root = os.path.join(root, "train")
+valid_root = os.path.join(root, "valid")
 ffmpeg = "datasets/ffmpeg.exe"
 
 train_rate = 3
 valid_clip_length = 30
 min_clip_length = valid_clip_length
 
-for name in os.listdir(root):
+for name in os.listdir(origi_root):
 
-    path = os.path.join(root, name)
+    path = os.path.join(origi_root, name)
     cap = cv2.VideoCapture(path)
     if not cap.isOpened():
         print("cannot open", path)
